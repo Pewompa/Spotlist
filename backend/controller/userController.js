@@ -1,11 +1,20 @@
 const UserModel = require('../models/userModel');
 
-async function getUsers(req, res) {
+async function getUser(req, res) {
   try {
     const data = await UserModel.find({
       name: req.params.username,
       password: req.params.password,
     });
+    res.status(201);
+    res.send(data);
+  } catch {
+    res.status(500);
+  }
+}
+async function getAllUsers(req, res) {
+  try {
+    const data = await UserModel.find();
     res.status(201);
     res.send(data);
   } catch {
@@ -29,4 +38,4 @@ async function addUsers(req, res) {
   }
 }
 
-module.exports = { addUsers, getUsers };
+module.exports = { addUsers, getUser, getAllUsers };

@@ -2,7 +2,10 @@ const UserModel = require('../models/userModel');
 
 async function getUsers(req, res) {
   try {
-    const data = await UserModel.find();
+    const data = await UserModel.find({
+      name: req.params.username,
+      password: req.params.password,
+    });
     res.status(201);
     res.send(data);
   } catch {

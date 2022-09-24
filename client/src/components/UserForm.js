@@ -1,9 +1,12 @@
-import { useState } from 'react';
-import { getUser } from './service/userAuthService';
+import { useState, useContext } from 'react';
+import { getUser } from '../service/userAuthService';
+import UserContext from './UserContext';
 
 const UserForm = () => {
+  const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  // const [userId, setUserId] = useState('');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -15,8 +18,12 @@ const UserForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let data = await getUser(username, password);
-    event.target.username = '';
-    event.target.password = '';
+    // setUserId(data[0].id);
+    setUser(data[0].id);
+    event.target.username.value = '';
+    event.target.password.value = '';
+
+    console.log(user);
   };
   return (
     <form onSubmit={handleSubmit}>

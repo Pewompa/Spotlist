@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react';
+import './App.css';
 import PlayListForm from './components/PlayListForm';
+import UserContext from './components/UserContext';
 import UserForm from './components/UserForm';
 import { getPlaylists } from './service/playListService';
-import './App.css';
 
 function App() {
+  const user = useState('muchachen');
   const [playlist, setPlayList] = useState([]);
+  const [usero, setUsero] = useState([]);
   useEffect(() => {
     getPlaylists().then((data) => setPlayList(data));
-    console.log(playlist);
   }, []);
   return (
     <div className="App">
-      <h1>SPOTLIST</h1>
-      <UserForm />
-      <PlayListForm />
+      <UserContext.Provider value={user}>
+        <h1>SPOTLIST</h1>
+        <UserForm />
+        <PlayListForm />
+      </UserContext.Provider>
     </div>
   );
 }

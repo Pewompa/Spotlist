@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const songSchema = new mongoose.Schema({
+const songListSchema = new mongoose.Schema({
+  name: String,
   listId: String,
   songs: {
     type: Array,
@@ -7,5 +8,5 @@ const songSchema = new mongoose.Schema({
   },
 });
 
-const songModel = mongoose.model('users', songSchema);
-module.exports = songModel;
+const songListModel = mongoose.model('songList', songListSchema);
+module.exports = songListModel;

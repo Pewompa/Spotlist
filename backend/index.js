@@ -13,6 +13,8 @@ app.use(express.json());
 app.use(userRouter);
 app.use(songRouter);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`app started on port ${port}`);
 });
+
+module.exports = { app, server };

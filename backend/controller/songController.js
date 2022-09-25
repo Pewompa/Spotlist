@@ -6,7 +6,7 @@ async function getSongs(req, res) {
       userId: req.params.userid,
       listId: req.params.listid,
     });
-    res.status(201);
+    res.status(200);
     res.send(data);
   } catch {
     res.status(500);
@@ -29,5 +29,15 @@ async function addSong(req, res) {
     res.status(500);
   }
 }
-
-module.exports = { addSong, getSongs };
+async function deleteSong(req, res) {
+  try {
+    const data = await SongModel.deleteOne({
+      title: req.params.title,
+    });
+    res.status(200);
+    res.send(data);
+  } catch {
+    res.status(500);
+  }
+}
+module.exports = { addSong, getSongs, deleteSong };

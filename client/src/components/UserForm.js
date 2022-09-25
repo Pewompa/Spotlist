@@ -30,8 +30,8 @@ const UserForm = ({ playListName, setPlayListName }) => {
 
     await setPlayListName(filtered);
 
-    event.target.username.value = '';
-    event.target.password.value = '';
+    // event.target.username.value = '';
+    // event.target.password.value = '';
   };
   return (
     <form onSubmit={handleSubmit}>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getSongs } from '../service/songListService';
 import SongList from './SongList';
-
+import SongForm from './SongForm';
 const PlayList = ({ playListName, setPlayListName }) => {
   const [songList, setSongList] = useState([]);
   console.log(playListName);
@@ -17,6 +17,11 @@ const PlayList = ({ playListName, setPlayListName }) => {
   return (
     <div>
       <h2>{playListName.name}</h2>
+      <SongForm
+        playListName={playListName}
+        songList={songList}
+        setSongList={setSongList}
+      ></SongForm>
       {songList.length &&
         songList[0].map((song, i) => {
           return <SongList key={i} song={song} setSongList={setSongList} />;

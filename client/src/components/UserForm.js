@@ -20,7 +20,7 @@ const UserForm = ({ playListName, setPlayListName }) => {
     let data = await getUser(username, password);
     // setUserId(data[0].id);
     await setUser(data[0].id);
-    console.log(data);
+
     let playListData = await getPlayLists();
 
     let filtered = playListData.filter((el) => {

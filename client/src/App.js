@@ -8,7 +8,7 @@ import UserForm from './components/UserForm';
 function App() {
   const user = useState('');
   const [playListName, setPlayListName] = useState([]);
-
+  console.log(user);
   console.log(playListName);
 
   return (

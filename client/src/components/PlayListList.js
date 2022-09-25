@@ -2,7 +2,6 @@ import React from 'react';
 import PlayList from './PlayList';
 
 const PlayListList = ({ playListName, setPlayListName }) => {
-  console.log(playListName);
   return (
     <div>
       <hr />

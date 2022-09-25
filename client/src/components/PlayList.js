@@ -4,18 +4,18 @@ import SongList from './SongList';
 import SongForm from './SongForm';
 import '../App.css';
 
-const PlayList = ({ playListName, setPlayListName }) => {
+const PlayList = ({ playListName }) => {
   const [songList, setSongList] = useState([]);
-  console.log(playListName);
+
   useEffect(() => {
     const fetchData = async function () {
       const data = await getSongs(playListName.userId, playListName.listId);
-      console.log(data);
+
       setSongList([...songList, data]);
     };
     fetchData();
   }, []);
-  console.log(songList);
+
   return (
     <div>
       <h3 className="title">{playListName.name}</h3>

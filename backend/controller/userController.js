@@ -6,19 +6,19 @@ async function getUser(req, res) {
       name: req.params.username,
       password: req.params.password,
     });
-    res.status(201);
+    res.status(200);
     res.send(data);
   } catch {
-    res.status(500);
+    res.status(404);
   }
 }
 async function getAllUsers(req, res) {
   try {
     const data = await UserModel.find();
-    res.status(201);
+    res.status(200);
     res.send(data);
   } catch {
-    res.status(500);
+    res.status(404);
   }
 }
 

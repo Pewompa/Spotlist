@@ -3,7 +3,7 @@ const SongListModel = require('../models/songListModel');
 // async function getPlaylists(req, res) {
 //   console.log('in');
 //   try {
-//     const data = await SongListModel.find({ _id: req.params.id });
+//     const data = await SongListModel.find({ userId: req.params.id });
 //     console.log('in');
 //     res.status(201);
 //     res.send(data);
@@ -15,7 +15,7 @@ const SongListModel = require('../models/songListModel');
 async function getPlaylists(req, res) {
   try {
     const data = await SongListModel.find();
-    res.status(201);
+    res.status(200);
     res.send(data);
   } catch (error) {
     res.status(500);
@@ -39,5 +39,15 @@ async function addPlaylist(req, res) {
     res.status(500);
   }
 }
+async function deletePlaylist(req, res) {
+  try {
+    const data = await SongListModel.deleteOne({ name: req.params.name });
+    res.status(200);
+    res.send(data);
+  } catch (error) {
+    res.status(500);
+    console.log(error);
+  }
+}
 
-module.exports = { getPlaylists, addPlaylist };
+module.exports = { getPlaylists, addPlaylist, deletePlaylist };

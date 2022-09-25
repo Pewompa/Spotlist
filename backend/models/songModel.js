@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const songSchema = new mongoose.Schema({
   userId: String,
-  playlist: String,
+  listId: String,
   artist: String,
   title: String,
 });

@@ -7,7 +7,6 @@ const UserForm = ({ playListName, setPlayListName }) => {
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const [userId, setUserId] = useState('');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -20,18 +19,18 @@ const UserForm = ({ playListName, setPlayListName }) => {
     event.preventDefault();
     let data = await getUser(username, password);
     // setUserId(data[0].id);
-    setUser(data[0].id);
-
+    await setUser(data[0].id);
+    console.log(data);
     let playListData = await getPlayLists();
 
     let filtered = playListData.filter((el) => {
-      return el.listId === user;
+      return el.userId === user;
     });
 
     await setPlayListName(filtered);
 
-    event.target.username.value = '';
-    event.target.password.value = '';
+    // event.target.username.value = '';
+    // event.target.password.value = '';
   };
   return (
     <form onSubmit={handleSubmit}>

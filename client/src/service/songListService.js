@@ -1,16 +1,17 @@
-export const getPlayLists = async () => {
+export const getSongs = async (userId, listId) => {
   try {
-    const response = await fetch(`http://localhost:3000/users/lists`);
+    const response = await fetch(
+      `http://localhost:3000/users/${userId}/lists/${listId}/songs`
+    );
     return response.json();
   } catch (error) {
     console.log(error);
   }
 };
-
-export const addPlayList = async (userId, name, listId) => {
+export const addSongs = async (userId, listId, artist, title) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/users/${userId}/lists/add`,
+      `http://localhost:3000/users/${userId}/lists/${listId}/songs/add`,
       {
         method: 'POST',
         headers: {
@@ -19,11 +20,11 @@ export const addPlayList = async (userId, name, listId) => {
         body: JSON.stringify({
           userId: userId,
           listId: listId,
-          name: name,
+          artist: artist,
+          title: title,
         }),
       }
     );
-
     return response.json();
   } catch (error) {
     console.log(error);

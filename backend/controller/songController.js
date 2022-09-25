@@ -2,7 +2,10 @@ const SongModel = require('../models/songModel');
 
 async function getSongs(req, res) {
   try {
-    const data = await SongModel.find({ playlist: req.params.userid });
+    const data = await SongModel.find({
+      userId: req.params.userid,
+      listId: req.params.listid,
+    });
     res.status(201);
     res.send(data);
   } catch {
@@ -13,8 +16,8 @@ async function getSongs(req, res) {
 async function addSong(req, res) {
   try {
     const newUser = new SongModel({
-      user: req.params.userid,
-      playlist: req.params.listid,
+      userId: req.params.userid,
+      listId: req.params.listid,
       artist: req.body.artist,
       title: req.body.title,
     });

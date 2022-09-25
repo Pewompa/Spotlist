@@ -8,5 +8,5 @@ const songListSchema = new mongoose.Schema({
   },
 });
 
-const songListModel = mongoose.model('songList', songListSchema);
+const songListModel = mongoose.model('songlists', songListSchema);
 module.exports = songListModel;

@@ -1,8 +1,9 @@
 import { useState, useContext } from 'react';
+import { getPlayLists } from '../service/playListService';
 import { getUser } from '../service/userAuthService';
 import UserContext from './UserContext';
 
-const UserForm = () => {
+const UserForm = ({ playListName, setPlayListName }) => {
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -20,10 +21,17 @@ const UserForm = () => {
     let data = await getUser(username, password);
     // setUserId(data[0].id);
     setUser(data[0].id);
+
+    let playListData = await getPlayLists();
+
+    let filtered = playListData.filter((el) => {
+      return el.listId === user;
+    });
+
+    await setPlayListName(filtered);
+
     event.target.username.value = '';
     event.target.password.value = '';
-
-    console.log(user);
   };
   return (
     <form onSubmit={handleSubmit}>

@@ -1,12 +1,25 @@
 const SongListModel = require('../models/songListModel');
 
+// async function getPlaylists(req, res) {
+//   console.log('in');
+//   try {
+//     const data = await SongListModel.find({ _id: req.params.id });
+//     console.log('in');
+//     res.status(201);
+//     res.send(data);
+//   } catch (error) {
+//     res.status(500);
+//     console.log(error);
+//   }
+// }
 async function getPlaylists(req, res) {
   try {
     const data = await SongListModel.find();
     res.status(201);
     res.send(data);
-  } catch {
+  } catch (error) {
     res.status(500);
+    console.log(error);
   }
 }
 

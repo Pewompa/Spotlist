@@ -15,7 +15,8 @@ const PlayListForm = ({ playListName, setPlayListName }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let data = await addPlayList(user, temp, uuidv4());
-    setPlayListName([...playListName, data.name]);
+    setPlayListName([...playListName, data]);
+    event.target.playlist.value = '';
   };
   return (
     <>
@@ -23,7 +24,7 @@ const PlayListForm = ({ playListName, setPlayListName }) => {
         <input
           type="text"
           placeholder="insert playlist name"
-          name="name"
+          name="playlist"
           onChange={handleNameChange}
         ></input>
         <input type="submit"></input>

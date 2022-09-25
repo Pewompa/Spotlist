@@ -1,26 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import PlayListForm from './components/PlayListForm';
 import PlayListList from './components/PlayListList';
 import UserContext from './components/UserContext';
 import UserForm from './components/UserForm';
-import { getPlayLists } from './service/playListService';
 
 function App() {
-  const user = useState('muchachen');
+  const user = useState('');
   const [playListName, setPlayListName] = useState([]);
-  // const [usero, setUsero] = useState([]);
 
   console.log(playListName);
 
   return (
     <div className="App">
       <UserContext.Provider value={user}>
-        <h1>SPOTLIST</h1>
+        <h1 className="title">SPOTLIST</h1>
+        <p>Login</p>
         <UserForm
           playListName={playListName}
           setPlayListName={setPlayListName}
         />
+        <p>New Playlist</p>
         <PlayListForm
           playListName={playListName}
           setPlayListName={setPlayListName}
@@ -30,6 +30,7 @@ function App() {
           setPlayListName={setPlayListName}
         />
       </UserContext.Provider>
+      <button onClick={() => window.location.reload()}>Reload</button>
     </div>
   );
 }

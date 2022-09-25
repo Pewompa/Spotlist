@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { getSongs } from '../service/songListService';
 import SongList from './SongList';
 import SongForm from './SongForm';
+import '../App.css';
+
 const PlayList = ({ playListName, setPlayListName }) => {
   const [songList, setSongList] = useState([]);
   console.log(playListName);
@@ -16,7 +18,7 @@ const PlayList = ({ playListName, setPlayListName }) => {
   console.log(songList);
   return (
     <div>
-      <h2>{playListName.name}</h2>
+      <h3 className="title">{playListName.name}</h3>
       <SongForm
         playListName={playListName}
         songList={songList}

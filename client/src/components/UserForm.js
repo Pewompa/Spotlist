@@ -7,7 +7,6 @@ const UserForm = ({ playListName, setPlayListName }) => {
   const [user, setUser] = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const [userId, setUserId] = useState('');
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);

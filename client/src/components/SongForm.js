@@ -21,18 +21,22 @@ const SongForm = ({ playListName, songList, setSongList }) => {
       title
     );
     setSongList([...songList, data]);
+    event.target.artist.value = '';
+    event.target.title.value = '';
   };
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="insert artist name"
-        onChange={handleArtistChange}
+        placeholder="Add artist's song title"
+        onChange={handleTitleChange}
+        name="title"
       ></input>
       <input
         type="text"
-        placeholder="insert artist's song title"
-        onChange={handleTitleChange}
+        placeholder="Add artist name"
+        onChange={handleArtistChange}
+        name="artist"
       ></input>
       <input type="submit"></input>
     </form>

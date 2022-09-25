@@ -1,8 +1,11 @@
 const SongList = ({ song, setSongList }) => {
   return (
     <div>
-      <h3>{song.title}</h3>
-      <h5>{song.artist}</h5>
+      <h4>
+        <span style={{ fontWeight: 200 }}>Title:</span> {song.title}{' '}
+        <span style={{ fontWeight: 200 }}>Artist:</span>
+        {song.artist}
+      </h4>
     </div>
   );
 };

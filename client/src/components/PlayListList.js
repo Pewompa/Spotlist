@@ -5,6 +5,7 @@ const PlayListList = ({ playListName, setPlayListName }) => {
   console.log(playListName);
   return (
     <div>
+      <hr />
       {playListName.map((playList, i) => {
         return (
           <PlayList

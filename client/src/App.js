@@ -9,19 +9,7 @@ import { getPlayLists } from './service/playListService';
 function App() {
   const user = useState('muchachen');
   const [playListName, setPlayListName] = useState([]);
-  const [usero, setUsero] = useState([]);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const data = await getPlayLists();
-  //     const filtered = data.filter((id) => {
-  //       return (id.listId = user);
-  //     });
-  //     console.log(filtered);
-  //     setPlayListName(data);
-  //   }
-  //   fetchData();
-  // }, []);
+  // const [usero, setUsero] = useState([]);
 
   console.log(playListName);
 
@@ -37,10 +25,10 @@ function App() {
           playListName={playListName}
           setPlayListName={setPlayListName}
         />
-        {/* <PlayListList
+        <PlayListList
           playListName={playListName}
           setPlayListName={setPlayListName}
-        /> */}
+        />
       </UserContext.Provider>
     </div>
   );

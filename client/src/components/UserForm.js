@@ -20,12 +20,12 @@ const UserForm = ({ playListName, setPlayListName }) => {
     event.preventDefault();
     let data = await getUser(username, password);
     // setUserId(data[0].id);
-    setUser(data[0].id);
-
+    await setUser(data[0].id);
+    console.log(data);
     let playListData = await getPlayLists();
 
     let filtered = playListData.filter((el) => {
-      return el.listId === user;
+      return el.userId === user;
     });
 
     await setPlayListName(filtered);

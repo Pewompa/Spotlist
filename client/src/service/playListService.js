@@ -7,17 +7,18 @@ export const getPlayLists = async () => {
   }
 };
 
-export const addPlayList = async (id, name) => {
+export const addPlayList = async (userId, name, listId) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/users/${id}/lists/add`,
+      `http://localhost:3000/users/${userId}/lists/add`,
       {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
         },
         body: JSON.stringify({
-          id: id,
+          userId: userId,
+          listId: listId,
           name: name,
         }),
       }

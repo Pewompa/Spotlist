@@ -27,7 +27,8 @@ async function addPlaylist(req, res) {
   try {
     const newUser = new SongListModel({
       name: req.body.name,
-      listId: req.params.userid,
+      listId: req.body.listId,
+      userId: req.params.userid,
       songs: req.body.songs,
     });
     await newUser.save();

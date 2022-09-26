@@ -11,10 +11,11 @@ const PlayList = ({ playListName }) => {
     const fetchData = async function () {
       const data = await getSongs(playListName.userId, playListName.listId);
 
-      setSongList([...songList, data]);
+      setSongList([data]);
     };
     fetchData();
-  }, []);
+    console.log('yo');
+  }, [playListName]);
 
   return (
     <div>

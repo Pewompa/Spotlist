@@ -1,5 +1,4 @@
 import { useState, useContext } from 'react';
-import { getPlayLists } from '../service/playListService';
 import { getUser } from '../service/userAuthService';
 import UserContext from './UserContext';
 

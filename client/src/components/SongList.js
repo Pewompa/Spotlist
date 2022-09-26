@@ -1,4 +1,4 @@
-const SongList = ({ song, setSongList }) => {
+const SongList = ({ song }) => {
   return (
     <div>
       <h4>

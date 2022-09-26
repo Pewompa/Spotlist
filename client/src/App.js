@@ -10,7 +10,7 @@ function App() {
   const user = useState('');
   const [usero, setUsero] = useState([]);
   const [playListName, setPlayListName] = useState([]);
-  console.log(usero);
+
   useEffect(() => {
     const fetchData = async () => {
       let playListData = await getPlayLists();
@@ -39,6 +39,7 @@ function App() {
         <PlayListForm
           playListName={playListName}
           setPlayListName={setPlayListName}
+          usero={usero}
         />
         <PlayListList
           playListName={playListName}

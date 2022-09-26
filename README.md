@@ -19,7 +19,4 @@ To log in: chose from one of the following usernames and passwords:
 
 To run the tests run “npm test”
 
-Notes: <br>
--click on the ‘Reload button’ every time a new song is added to the list and/or a new user is logged in
-
 Enjoy!

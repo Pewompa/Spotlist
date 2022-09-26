@@ -14,7 +14,7 @@ const PlayList = ({ playListName }) => {
       setSongList([data]);
     };
     fetchData();
-  }, [playListName]);
+  }, [playListName, songList]);
 
   return (
     <div>

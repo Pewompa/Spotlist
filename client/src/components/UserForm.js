@@ -16,6 +16,8 @@ const UserForm = ({ setUser }) => {
     event.preventDefault();
     let data = await getUser(username, password);
     await setUser(data[0].id);
+    event.target.username.value = '';
+    event.target.password.value = '';
   };
 
   return (

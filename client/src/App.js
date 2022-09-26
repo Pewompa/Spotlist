@@ -41,7 +41,6 @@ function App() {
         playListName={playListName}
         setPlayListName={setPlayListName}
       />
-      <button onClick={() => window.location.reload()}>Reload</button>
     </div>
   );
 }

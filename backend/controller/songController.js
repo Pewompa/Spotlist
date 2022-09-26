@@ -29,7 +29,18 @@ async function addSong(req, res) {
     res.status(500);
   }
 }
-async function deleteSong(req, res) {
+async function deleteSongs(req, res) {
+  try {
+    const data = await SongModel.deleteMany({
+      listId: req.params.id,
+    });
+    res.status(200);
+    res.send(data);
+  } catch {
+    res.status(500);
+  }
+}
+async function deleteOneSong(req, res) {
   try {
     const data = await SongModel.deleteOne({
       title: req.params.title,
@@ -40,4 +51,4 @@ async function deleteSong(req, res) {
     res.status(500);
   }
 }
-module.exports = { addSong, getSongs, deleteSong };
+module.exports = { addSong, getSongs, deleteSongs, deleteOneSong };

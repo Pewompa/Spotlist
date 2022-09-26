@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { getSongs } from '../service/songListService';
+import { deleteSongs, getSongs } from '../service/songListService';
 import SongList from './SongList';
 import SongForm from './SongForm';
 import '../App.css';
+import { deletePlayList } from '../service/playListService';
 
-const PlayList = ({ playListName }) => {
+const PlayList = ({ playListName, setPlayListName }) => {
   const [songList, setSongList] = useState([]);
 
   useEffect(() => {
@@ -15,6 +16,18 @@ const PlayList = ({ playListName }) => {
     };
     fetchData();
   }, [playListName, songList]);
+
+  const handleDelete = async () => {
+    await deletePlayList(playListName.listId);
+    await deleteSongs(playListName.listId);
+
+    await setPlayListName((prev) => {
+      const filtered = prev.filter(
+        (playList) => playList.listId !== playListName.listId
+      );
+      return [...filtered];
+    });
+  };
 
   return (
     <div>
@@ -28,6 +41,7 @@ const PlayList = ({ playListName }) => {
         songList[0].map((song, i) => {
           return <SongList key={i} song={song} setSongList={setSongList} />;
         })}
+      <button onClick={handleDelete}>Delete Playlist</button>
     </div>
   );
 };

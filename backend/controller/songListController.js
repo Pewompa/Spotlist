@@ -29,7 +29,7 @@ async function addPlaylist(req, res) {
 }
 async function deletePlaylist(req, res) {
   try {
-    const data = await SongListModel.deleteOne({ name: req.params.name });
+    const data = await SongListModel.deleteOne({ listId: req.params.name });
     res.status(200);
     res.send(data);
   } catch (error) {

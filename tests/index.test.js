@@ -26,9 +26,10 @@ describe('User Authentication', () => {
 describe('Add a playlist to the database', () => {
   const newPlaylist = {
     name: 'test',
+    listId: '123',
   };
   afterAll(async () => {
-    await api.delete(`/users/${newPlaylist.name}/lists/delete`);
+    await api.delete(`/users/${newPlaylist.listId}/lists/delete`);
   });
   test('GET /users/lists should return all playlists', async () => {
     await api

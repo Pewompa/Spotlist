@@ -13,7 +13,7 @@ function App() {
     const fetchData = async () => {
       let playListData = await getPlayLists();
 
-      let filtered = await playListData.filter((el) => {
+      let filtered = playListData.filter((el) => {
         return el.userId === user;
       });
 

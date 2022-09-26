@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import PlayListForm from './components/PlayListForm';
 import PlayListList from './components/PlayListList';
-import UserContext from './components/UserContext';
 import UserForm from './components/UserForm';
 import { getPlayLists } from './service/playListService';
 
 function App() {
-  const user = useState('');
-  const [usero, setUsero] = useState([]);
+  const [user, setUser] = useState([]);
   const [playListName, setPlayListName] = useState([]);
 
   useEffect(() => {
@@ -16,36 +14,33 @@ function App() {
       let playListData = await getPlayLists();
 
       let filtered = await playListData.filter((el) => {
-        return el.userId === usero;
+        return el.userId === user;
       });
-      console.log(playListData);
-      console.log(filtered);
-      await setPlayListName(filtered);
+
+      setPlayListName(filtered);
     };
     fetchData();
-  }, [usero]);
+  }, [user]);
 
   return (
     <div className="App">
-      <UserContext.Provider value={user}>
-        <h1 className="title">SPOTLIST</h1>
-        <p>Login</p>
-        <UserForm
-          playListName={playListName}
-          setPlayListName={setPlayListName}
-          setUsero={setUsero}
-        />
-        <p>New Playlist</p>
-        <PlayListForm
-          playListName={playListName}
-          setPlayListName={setPlayListName}
-          usero={usero}
-        />
-        <PlayListList
-          playListName={playListName}
-          setPlayListName={setPlayListName}
-        />
-      </UserContext.Provider>
+      <h1 className="title">SPOTLIST</h1>
+      <p>Login</p>
+      <UserForm
+        playListName={playListName}
+        setPlayListName={setPlayListName}
+        setUser={setUser}
+      />
+      <p>New Playlist</p>
+      <PlayListForm
+        playListName={playListName}
+        setPlayListName={setPlayListName}
+        user={user}
+      />
+      <PlayListList
+        playListName={playListName}
+        setPlayListName={setPlayListName}
+      />
       <button onClick={() => window.location.reload()}>Reload</button>
     </div>
   );

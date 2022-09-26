@@ -16,6 +16,7 @@ songRouter.post(
   '/users/:userid/lists/:listid/songs/add',
   songController.addSong
 );
-songRouter.delete('/users/:title/delete', songController.deleteSong);
+songRouter.delete('/users/:id/delete/many', songController.deleteSongs);
+songRouter.delete('/users/:title/delete', songController.deleteOneSong);
 
 module.exports = songRouter;

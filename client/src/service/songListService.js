@@ -30,3 +30,30 @@ export const addSongs = async (userId, listId, artist, title) => {
     console.log(error);
   }
 };
+
+export const deleteSongs = async (id) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/users/${id}/delete/many`,
+      {
+        method: 'DELETE',
+      }
+    );
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteOneSong = async (title) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/users/${title}/delete`,
+      {
+        method: 'DELETE',
+      }
+    );
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
+};

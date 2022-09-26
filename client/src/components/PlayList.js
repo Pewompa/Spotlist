@@ -14,7 +14,6 @@ const PlayList = ({ playListName }) => {
       setSongList([data]);
     };
     fetchData();
-    console.log('yo');
   }, [playListName]);
 
   return (

@@ -1,9 +1,7 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { getUser } from '../service/userAuthService';
-import UserContext from './UserContext';
 
-const UserForm = ({ setUsero }) => {
-  const [user, setUser] = useContext(UserContext);
+const UserForm = ({ setUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,7 +16,6 @@ const UserForm = ({ setUsero }) => {
     event.preventDefault();
     let data = await getUser(username, password);
     await setUser(data[0].id);
-    await setUsero(data[0].id);
   };
 
   return (

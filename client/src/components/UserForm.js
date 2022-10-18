@@ -29,7 +29,7 @@ const UserForm = ({ setUser }) => {
         name="username"
       ></input>
       <input
-        type="text"
+        type="password"
         placeholder="password"
         onChange={handlePasswordChange}
         name="password"

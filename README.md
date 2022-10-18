@@ -9,7 +9,8 @@ Command line Instructions to start the app:
 3. ‘cd’ into ‘backend’
 4. Run “node index.js”
 5. In a separate terminal ‘cd’ into ‘Client’
-6. Run “npm run start”
+6. Run "npm install"
+7. Run “npm run start”
 
 To log in: chose from one of the following usernames and passwords:
 
